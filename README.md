@@ -1,1 +1,1 @@
-# econ294a_fehong
+This is Feng Hong's econ294a assignment. 
