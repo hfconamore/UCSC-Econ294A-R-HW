@@ -58,13 +58,13 @@ class(NHIS_2007_RData)
 # "data.frame"
 
 # Apply and report length, dim, nrow, ncol, and summary functions.
-length(NHIS_2007_RData)
+print(length(NHIS_2007_RData))
 # [1] 9
-dim(NHIS_2007_RData)
+print(dim(NHIS_2007_RData))
 # [1] 4785    9
-nrow(NHIS_2007_RData)
+print(nrow(NHIS_2007_RData))
 # [1] 4785
-ncol(NHIS_2007_RData)
+print(ncol(NHIS_2007_RData))
 # [1] 9
 summary(NHIS_2007_RData)
 
@@ -158,8 +158,6 @@ print(mean(diamonds$price,na.rm = TRUE))
 
 # What is the mean price of cut "good", "very good", and "Ideal"?
 print(mean(diamonds$price,na.rm = TRUE))
-
-mean(bwght[bwght$cigs>0,"cigs"])
 
 # What is the mean price of cut “fair”?
 mean(diamonds[diamonds$cut=="fair",]$price,na.rm = TRUE)
