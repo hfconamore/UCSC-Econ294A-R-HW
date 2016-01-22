@@ -98,9 +98,21 @@ FengHongAssignment2$s3e <- paste(arr[3,2,1],arr[2,2,1],arr[2,2,2], sep = "")
 
 
 
+
+# Question 4
+# Load Alan's org_example.dta file.
+library(foreign)
+org_example <- read.dta("http://people.ucsc.edu/~aspearot/Econ_217_Data/org_example.dta")
+summary(org_example)
+
+# Find average rw for each year-month-educ group. (ignore NAs)
+FengHongAssignment2$s4 <- data.frame( aggregate(org_example$rw,
+                        list(year = org_example$year,
+                             month= org_example$month,
+                             educ = org_example$educ),
+                        mean,na.rm=TRUE))
+
 save(FengHongAssignment2,
      file = "/Users/Feng/Google Drive/2016_Winter_Quarter/econ294a_fehong/FengHongAssignment2.RData")
 
-
-
-
+FengHongAssignment2
