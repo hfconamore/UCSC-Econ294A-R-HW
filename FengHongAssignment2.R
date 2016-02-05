@@ -112,6 +112,9 @@ FengHongAssignment2$s4 <- data.frame( aggregate(org_example$rw,
                              educ = org_example$educ),
                         mean,na.rm=TRUE))
 
+# Rename the last column of the data fram.
+names(FengHongAssignment2$s4)[4] <- "AverageRealWage"
+
 save(FengHongAssignment2,
      file = "/Users/Feng/Google Drive/2016_Winter_Quarter/econ294a_fehong/FengHongAssignment2.RData")
 
