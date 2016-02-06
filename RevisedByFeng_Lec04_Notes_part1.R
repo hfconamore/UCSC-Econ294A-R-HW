@@ -7,7 +7,11 @@ library(dplyr)
 
 
 # mammal sleep dataset
+<<<<<<< HEAD
 msleep <- read.csv("/Users/Feng/Google Drive/2016_Winter_Quarter/Econ294A_R_Curtis/data/mammals_sleep.csv")
+=======
+msleep <- read.csv("/Users/Feng/Google Drive/2016_Winter_Quarter/econ294_2015/data/mammals_sleep.csv")
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 #' read.delim is for reading delimited files, defaulting to the TAB character for 
 #' the delimiter. Notice that header = TRUE and fill = TRUE in these variants, 
 #' and that the comment character is disabled.
@@ -82,15 +86,25 @@ head(sleepData)
 #' - one_of("x", "y", "z"): selects variables provided in a character vector.
 #' - everything(): selects all variables. (great for, select "everything else")
 
+<<<<<<< HEAD
+=======
+# refer to var names by text chat/string with select_()
+sleepdata <- select_(msleep, names(msleep)[1:4]) 
+head(sleepdata)
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 
 ## rename - handy tool to rename many variable names quickly
 # what's a fast way to rename columns?
 head(
   rename(sleepData, species = name)
 )
+<<<<<<< HEAD
 #' note "name" column is now "species" for the displayed returned values.
 #' But the variable "name" is not renamed in the sleepData unless the rename command is 
 #' assigned to something like testset <- rename().
+=======
+#note "name" column is now "species"
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 
 # but you can also use select to rename columns
 sleepData <- select(msleep, 
@@ -139,9 +153,13 @@ filter(msleep, sleep_total >= 16, bodywt >= 1)
 filter(msleep, sleep_total >= 16 & bodywt >= 1)
 
 # This is equivalent to the more verbose code in base R:
+<<<<<<< HEAD
 #' MIND THE COMMA IN THE END!!!!!!! the structure in the bracket is "rows",",","columns".
 #' The "column" is missing, so all the columns would be returned.
 
+=======
+# MIND THE COMMA IN THE END!!!!!!!
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 msleep[msleep$sleep_total >= 16 & msleep$bodywt >= 1, ]
 #on bigger datasets, filter is very often much faster.
 
@@ -286,11 +304,19 @@ msleep %>%
   select(name:order, sleep_total, sleep_rem, rem_proportion, bodywt, bodywt_grams) %>%
   head(25)
 
+<<<<<<< HEAD
 #BUT!, mutate lets you refer to recently created columns
 msleep %>% 
   transform(
     rem_proportion = sleep_rem / sleep_total, 
     rem_proportion = rem_proportion - 100    # this line won't work
+=======
+#BUT!, mutate let's you refer to recently created columns
+msleep %>% 
+  transform(
+    rem_proportion = sleep_rem / sleep_total, 
+    rem_proportion = rem_proportion - 100
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
   ) %>%
   select(name:order, sleep_total, sleep_rem, rem_proportion) %>%
   head(25)
@@ -313,7 +339,11 @@ msleep %>%
   )
 
 ## your own functions
+<<<<<<< HEAD
 # both summarize and mutate allow you to implement your own functions
+=======
+# both summarize and mutate allow you to implement your own functinos
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 stndz <- function(x){
   (x - mean(x, na.rm = T))  /  sd(x, na.rm = T)
 }
@@ -361,7 +391,10 @@ msleep %>%
     sleep_summary = summary(sleep_total)
   )
 # the func you apply must be vector of length 1 (or length 0)
+<<<<<<< HEAD
 # Error: expecting result of length one, got : 6   ???
+=======
+>>>>>>> 18c8835194cb5c6fdbcce6e13fef2b086042de17
 
 
 ## Summarize helper functions

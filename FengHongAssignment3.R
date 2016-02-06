@@ -84,7 +84,7 @@ df.ex.5a <- mutate(df.ex, rw.stndz = stndz(rw), rw_nrmlz = nrmlz(rw))
 #' value (rw_nrmlz), and count at year, month groupings. 
 df.ex.5b <- group_by(df.ex, year, month) %>% 
   mutate(rw.stndz = stndz(rw), rw_nrmlz = nrmlz(rw), count = n())
-  
+
 
 
 # # # # # # # # # # # # # # # 666666666666666666666666 # # # # # # # # # # # # # # # # # 
@@ -102,7 +102,7 @@ df.ex.6 <- df.ex %>%
     rw_max    = max(rw, na.rm = T),
     rw_count  = n() 
   )
-                                                                                                                                                                                       
+
 
 #' Use dplyr to find the year, month, state combination with the highest mean real wage.
 #' Print which year, month, state observation has the highest mean real wage.
@@ -122,7 +122,6 @@ print(
 typeof(df.ex$state)
 # [1] "integer"
 df.ex.7a <- df.ex %>%  arrange (year, month, desc(as.character(df.ex$state)))
-                              
-                              
-                              
-                              
+
+
+
