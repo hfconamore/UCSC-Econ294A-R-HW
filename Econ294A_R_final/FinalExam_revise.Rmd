@@ -17,12 +17,6 @@ library("RSQLite") #for sqllite
 
 ## Extract raw data from sqlite
 
-```
-Here comes to your word, Here comes to your word, 
-Here comes to your word, Here comes to your word
-```
-
-
 ```{r raw, message=FALSE}
 nycflights13_sqlite()
 
@@ -138,6 +132,12 @@ length(final_data[final_data$cancelled == 1])
 ```
 
 
+```
+Now I run two regression model. One is a OLS model for predicting departure delay. 
+The other is a GLS model (logit model) for predicting cancellation.
+```
+
+
 ## **OLS** for *dep_delay
 ```{r OLS}
 model.delay <- lm(dep_delay ~ month + as.factor(weekday) + carrier + origin +
@@ -153,6 +153,12 @@ model.cancel <- glm(cancelled ~ month + as.factor(weekday) + carrier + origin +
                      seats +  mean_visib,
                    data = final_data, family=binomial(link="logit"))
 summary(model.cancel)
+```
+
+```
+The regressors chosen are largely significant as we can see from the results.
+Two plots are generated to illustrate some relationship between cancellation and other
+conditions as well as departure delay and other conditions.
 ```
 
 ## (a) weather 
